@@ -8,10 +8,9 @@ namespace Pierre.Models {
         public string Name { get; set; }
         public string Description { get; set; }
         
-        public Vendor()
+        public Vendor(string name)
         {
-          
-           
+            Name = name;
         }
 
     }
