@@ -2,13 +2,14 @@
 <link rel="stylesheet" type="text/css" href="~/css/styles.css" />
 
 
-<h3>Here are all the Orders by Vendor : @Model.Name</h3>
+h3>Here are all the orders by vendor: @Model.Name</h3>
 <ol>
-  @foreach (Order newOrder in Model.Order)
-  {
-     <li>@newOrder.Title, @newOrder.Description</li> 
-  }
+@foreach (Order order in @Model["Order"])
+{
+  <li><a href='/vendor/@Model["Vendor"].Id/order/@order.Id'>@order.Description</a></li>
+}
 </ol>
+
 
 <p><a href='/vendor/@Model.Id/order/new'>Add a new Order for Vendor</a></p>
 <p><a href='/vendor'>Return to Vendor list</a></p>
