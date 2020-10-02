@@ -50,17 +50,27 @@ namespace Pierre.Tests {
       Vendor newVendor1 = new Vendor (name01,"bread store");
       Vendor newVendor2 = new Vendor (name02,"cookie store");
       List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2 };
-      List<Vendor> newResult = Vendor.GetAll();
+      
       //Act
-      foreach (Vendor item in newResult)
-      {
-        Console.WriteLine(item.Name);
-      }
-     
-
+      List<Vendor> newResult = Vendor.GetAll();
       //Assert
       CollectionAssert.AreEqual (newList, newResult);
     }
+    [TestMethod]
+  public void Find_ReturnsCorrectVendor_Vendor()
+  {
+    //Arrange
+    string name01 = "Work";
+    string name02 = "School";
+    Vendor newVendor1 = new Vendor(name01,"Test");
+    Vendor newVendor2 = new Vendor(name02,"test");
+
+    //Act
+    Vendor result = Vendor.Find(2);
+
+    //Assert
+    Assert.AreEqual(newVendor2, result);
+  }
 
   }
 }
