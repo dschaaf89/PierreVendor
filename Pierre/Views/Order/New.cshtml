@@ -1,0 +1,13 @@
+<link rel="stylesheet" type="text/css" href="~/css/styles.css" />
+<h1>Add a new order to @Model.Name</h1>
+
+<form action="/vendor/@Model.Id/order" method="post">
+  <input id="vendorId" name="vendorId" type="hidden" value="@Model.Id">
+  <label for="orderTitle">orderTitle</label>
+  <input id="orderTitle" name="orderTitle" type="text">
+  <label for="OrderDescription">Order Description</label>
+  <input id="orderDescription" name="orderDescription" type="text">
+  <label for="price">Price</label>
+  <input id="prece" name="price" type="number">
+  <button type='submit'>Add Item</button>
+</form>

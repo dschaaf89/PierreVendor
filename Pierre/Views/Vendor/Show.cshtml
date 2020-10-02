@@ -1,0 +1,15 @@
+@using Pierre.Models;
+<link rel="stylesheet" type="text/css" href="~/css/styles.css" />
+
+
+<h3>Here are all the Orders by Vendor : @Model.Name</h3>
+<ol>
+  @foreach (Order newOrder in Model.Order)
+  {
+     <li>@newOrder.Title, @newOrder.Description</li> 
+  }
+</ol>
+
+<p><a href='/vendor/@Model.Id/order/new'>Add a new Order for Vendor</a></p>
+<p><a href='/vendor'>Return to Vendor list</a></p>
+<p><a href='/'>Return to Main Page</a></p> 
