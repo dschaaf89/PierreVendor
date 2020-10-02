@@ -6,7 +6,7 @@ namespace Pierre.Controllers
 {
   public class orderController : Controller
   {
-    [HttpGet("/vendor/{vendorId}/vendor/new")]
+    [HttpGet("/vendor/{vendorId}/order/new")]
   public ActionResult New(int vendorId)
   {
     Vendor vendor = Vendor.Find(vendorId);
