@@ -30,7 +30,7 @@ This is a project to take in Vendor orders for Pierre's Bakery. he wanted us to 
 
 ## Known Bugs
 
-the one known bug at this time is for the CSS and _layout part. it says the Feature 'top-level statements' is not available in C# 7.3 please use 9.0 or greater
+no known bugs at this time
 ## Support and contact details
 
 _if you have questions please email Daniel Schaaf @ daniel.schaaf@outlook.com _

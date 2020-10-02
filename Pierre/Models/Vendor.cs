@@ -81,6 +81,19 @@ namespace Pierre.Models
             return null;
         }
 
+        public static Vendor SearchVendor(string vendorSearch)
+    {
+      //List<Record> result = new List<Record>{};
+      foreach (Vendor vendor in _instances)
+      {
+          if(vendor.Name == vendorSearch)
+          {
+            return vendor;
+          }
+      }
+      return null;
+    }
+
     
   }
 }

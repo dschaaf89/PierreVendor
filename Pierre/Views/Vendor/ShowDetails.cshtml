@@ -22,7 +22,7 @@ else
       else
       {
         <ul>
-        @foreach (Order order in Model.getOrders())
+        @foreach (Order order in Model.GetOrders())
         {
             <li><a href="/Order/@order.Id">@order.Title:</a><ul><li>Date: @order.Date.ToShortDateString()</li> <li>Price: $@order.Price</li></ul></li>
         } 

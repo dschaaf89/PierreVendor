@@ -8,6 +8,8 @@ namespace Pierre.Models {
         public int Price { get; set; }
         public int Id { get; }
         public DateTime Date {get;set;}
+        public string VendorName {get;set;}
+        public int VendorId {get;set;}
         private static List<Order> _instances = new List<Order> { };
 
         public Order (string title, string description, int price, DateTime date, int id, string vendorName, int vendorId) {
@@ -17,6 +19,8 @@ namespace Pierre.Models {
             Date = date;
             _instances.Add (this);
             Id = _instances.Count;
+            VendorName = vendorName;
+            VendorId = vendorId;
         }
         public static List<Order> GetAll () {
             return _instances;
