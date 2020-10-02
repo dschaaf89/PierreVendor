@@ -8,21 +8,22 @@ namespace Pierre.Models {
         public int Id { get; }
         //public List<Order> Orders { get; set; }
 
-        public Vendor(string name, string description) 
-        {
+        public Vendor (string name, string description) {
             Name = name;
             Description = description;
             _instances.Add (this);
             Id = _instances.Count;
         }
-        public static void ClearAll() 
-        {
+        public static void ClearAll () {
             _instances.Clear ();
         }
 
-        public static List<Vendor> GetAll() 
-        {
+        public static List<Vendor> GetAll () {
             return _instances;
+        }
+        public static Vendor Find (int searchId) 
+        {
+            return _instances[searchId - 1];
         }
     }
 }
