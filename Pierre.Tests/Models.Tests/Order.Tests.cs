@@ -15,7 +15,7 @@ namespace Pierre.Tests
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order() 
     {
-      Order newOrder = new Order ("test","test",5,DateTime.Now);
+      Order newOrder = new Order ("test","test",5,DateTime.Now,1,"bob",2);
       Assert.AreEqual (typeof (Order), newOrder.GetType ());
     }
      [TestMethod]
@@ -25,7 +25,7 @@ namespace Pierre.Tests
       string title = "bob's store";
 
       //Act
-      Order newVendor = new Order (title,"order Croissants",30,DateTime.Now);
+      Order newVendor = new Order (title,"order Croissants",30,DateTime.Now,1,"bob",2);
       string result = newVendor.Title;
 
       //Assert
@@ -35,7 +35,7 @@ namespace Pierre.Tests
     public void SetDescription_SetDescription_String () {
       //Arrange
       string description = "croissants.";
-      Order newOrder = new Order ("bobs Store",description,30,DateTime.Now);
+      Order newOrder = new Order ("bobs Store",description,30,DateTime.Now,2,"bob",1);
 
       //Act
       string updatedDescription = "sourdough bread";
@@ -63,8 +63,8 @@ namespace Pierre.Tests
       //Arrange
       string description01 = "sourdough bread and cookies";
       string description02 = "cookies and cakes";
-      Order newOrder1 = new Order ("bob",description01,5,DateTime.Now);
-      Order newOrder2 = new Order ("green",description02,10,DateTime.Now);
+      Order newOrder1 = new Order ("bob",description01,5,DateTime.Now,1,"bob",1);
+      Order newOrder2 = new Order ("green",description02,10,DateTime.Now,2,"green",2);
       List<Order> newList = new List<Order> { newOrder1, newOrder2 };
 
       //Act
@@ -79,7 +79,7 @@ namespace Pierre.Tests
     public void GetId_OrdersInstantiateWithAnIdAndGetterReturns_Int () {
       //Arrange
      string description = "sourdough bread and cookies.";
-    Order newOrder = new Order("bob",description,15,DateTime.Now);
+    Order newOrder = new Order("bob",description,15,DateTime.Now,1,"bob",1);
 
       //Act
       int result = newOrder.Id;
@@ -93,8 +93,8 @@ namespace Pierre.Tests
       //Arrange
       string description01 = "sourdough bread and cookies";
       string description02 = "cookies and cakes";
-      Order newOrder1 = new Order ("bob",description01,20,DateTime.Now);
-      Order newOrder2 = new Order ("fred",description02,15,DateTime.Now);
+      Order newOrder1 = new Order ("bob",description01,20,DateTime.Now,1,"bob",1);
+      Order newOrder2 = new Order ("fred",description02,15,DateTime.Now,1,"fred",2);
 
       //Act
         Order result = Order.Find(2);
