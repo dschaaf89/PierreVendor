@@ -13,9 +13,25 @@ namespace Pierre.Tests
     // }
 
     [TestMethod]
-    public void OrderConstructor_CreatesInstanceOfOrder_Order () {
-      Order newOrder = new Order ();
+    public void OrderConstructor_CreatesInstanceOfOrder_Order() 
+    {
+      Order newOrder = new Order ("test","test",5);
       Assert.AreEqual (typeof (Order), newOrder.GetType ());
     }
+     [TestMethod]
+    public void GetTitle_ReturnsTitle_String() 
+    {
+      //Arrange
+      string title = "bob's store";
+
+      //Act
+      Order newVendor = new Order (title,"order Croissants",30);
+      string result = newVendor.Title;
+
+      //Assert
+      Assert.AreEqual (title, result);
+    }
+
+
 }
 }
