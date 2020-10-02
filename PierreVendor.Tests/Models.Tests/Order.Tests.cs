@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PierreVendor.Models;
+using Pierre.Models;
 
-namespace Vendor.Tests
+namespace Pierre.Tests
 {
     public class OrderTest 
     {
