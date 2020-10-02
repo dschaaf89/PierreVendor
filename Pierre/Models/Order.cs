@@ -7,12 +7,14 @@ namespace Pierre.Models {
         public string Description { get; set; }
         public int Price { get; set; }
         public int Id { get; }
+        public DateTime Date {get;set;}
         private static List<Order> _instances = new List<Order> { };
 
-        public Order (string title, string description, int price) {
+        public Order (string title, string description, int price, DateTime date, int id, string vendorName, int vendorId) {
             Title = title;
             Description = description;
             Price = price;
+            Date = date;
             _instances.Add (this);
             Id = _instances.Count;
         }

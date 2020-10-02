@@ -4,18 +4,21 @@ namespace Pierre.Models
 {
   public class Vendor
   {
-    private static List<Vendor> _instances = new List<Vendor> { };
-    public string Name { get; set; }
-    public string Description { get; set; }
-    public int Id { get; }
-    public List<Order> Order { get; set; }
+        public string Name  {get;set;}
+        public string Description {get;set;}
+        public int Id {get;set;}
+
+        private List<Order> orders = new List<Order>{};
+
+        private static List<Vendor> _instances = new List<Vendor>{};
 
     public Vendor(string name, string description)
     {
       Name = name;
       Description = description;
-      _instances.Add(this);
       Id = _instances.Count;
+      _instances.Add(this);
+      
     }
     public static void ClearAll()
     {
@@ -32,20 +35,52 @@ namespace Pierre.Models
     }
     public void AddOrder(Order order)
     {
-      Order.Add(order);
+      orders.Add(order);
+    }
+    public List<Order>GetOrders(){
+        return orders;
     }
 
-    public static Vendor SearchVendor(string vendorSearch)
+    public int getOrderCount()
     {
-      //List<Record> result = new List<Record>{};
-      foreach (Vendor vendor in _instances)
+        return orders.Count;
+    }
+    public static Vendor getVendorWithId(int id)
+    {
+      foreach(Vendor vendor in _instances)
       {
-          if(vendor.Name == vendorSearch)
-          {
-            return vendor;
-          }
+        if(vendor.Id == id)
+        {
+          return vendor;
+        }
       }
       return null;
     }
+     public void deleteVendor()
+        {
+            _instances.Remove(this);
+        }
+         public void deleteOrder(int orderId)
+        {
+            Order orderToBeDeleted = getOrderWithId(orderId);
+            orders.Remove(orderToBeDeleted);
+        }
+        public void deleteAllOrders()
+        {
+            orders.Clear();
+        }
+         public Order getOrderWithId(int id)
+        {
+            foreach (Order item in orders)
+            {
+                if(item.Id == id)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+    
   }
 }
