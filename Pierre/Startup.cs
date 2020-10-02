@@ -26,7 +26,7 @@ namespace Pierre
     public void Configure(IApplicationBuilder app)
     {
       app.UseDeveloperExceptionPage();
-      app.UseStaticFiles(); //THIS IS NEW
+      app.UseStaticFiles();
       app.UseMvc(routes =>
       {
         routes.MapRoute(
