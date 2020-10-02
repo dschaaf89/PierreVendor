@@ -23,6 +23,16 @@ namespace Pierre.Controllers
       Vendor newVendor = new Vendor(vendor,description);
       return RedirectToAction("Index");
     }
+    [HttpGet ("/vendor/{id}")]
+        public ActionResult Show (int id) {
+            Dictionary<string, object> model = new Dictionary<string, object> ();
+            Vendor selectedVendor = Vendor.Find (id);
+            List<Order> vendorOrder = selectedVendor.Order;
+            model.Add ("vendor", selectedVendor);
+            model.Add ("order", vendorOrder);
+            // return View (model);
+            return View(selectedVendor);
+        }
     
 }
 }
