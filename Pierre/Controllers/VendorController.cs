@@ -29,42 +29,42 @@ namespace Pierre.Controllers
     [HttpGet("/vendor/{id}")]
     public ActionResult Details(int id)
     {
-      Vendor vendor = Vendor.getVendorWithId(id);
+      Vendor vendor = Vendor.GetVendorWithId(id);
       return View(vendor);
     }
     [HttpGet("/vendor/{id}/order/new")]
     public ActionResult newOrder(int id)
     {
-      Vendor vendor = Vendor.getVendorWithId(id);
+      Vendor vendor = Vendor.GetVendorWithId(id);
       return View(vendor);
     }
     [HttpPost("/vendor/{id}/order/new")]
     public ActionResult CreateOrder(string title, string description, int price, DateTime orderDate, int vendorId)
     {
-      Vendor vendor = Vendor.getVendorWithId(vendorId);
-      vendor.AddOrder(new Order(title, description, price, orderDate, vendor.getOrderCount(), vendor.Name, vendor.Id));
+      Vendor vendor = Vendor.GetVendorWithId(vendorId);
+      vendor.AddOrder(new Order(title, description, price, orderDate, vendor.GetOrderCount(), vendor.Name, vendor.Id));
       return RedirectToAction("Details");
     }
     [HttpGet("/vendor/{id}/order/{oid}")]
     public ActionResult ShowOrder(int id, int oid)
     {
-      Vendor vendor = Vendor.getVendorWithId(id);
-      Order order = vendor.getOrderWithId(oid);
+      Vendor vendor = Vendor.GetVendorWithId(id);
+      Order order = vendor.GetOrderWithId(oid);
       return View(order);
     }
     [HttpGet("/vendor/{id}/order/{oid}/delete")]
     public ActionResult DeleteOrder(int vendorId, int orderId)
     {
-      Vendor vendor = Vendor.getVendorWithId(vendorId);
-      vendor.deleteOrder(orderId);
+      Vendor vendor = Vendor.GetVendorWithId(vendorId);
+      vendor.DeleteOrder(orderId);
 
       return RedirectToAction("Details");
     }
     [HttpGet("/vendor/{id}/order/deleteAll")]
     public ActionResult DeleteAllOrders(int vendorId)
     {
-      Vendor vendor = Vendor.getVendorWithId(vendorId);
-      vendor.deleteAllOrders(); ;
+      Vendor vendor = Vendor.GetVendorWithId(vendorId);
+      vendor.DeleteAllOrders(); ;
       return RedirectToAction("Details");
     }
 
@@ -72,8 +72,8 @@ namespace Pierre.Controllers
     [HttpGet("/vendor/{id}/delete")]
     public ActionResult DeleteVendor(int id)
     {
-      Vendor vendor = Vendor.getVendorWithId(id);
-      vendor.deleteVendor();
+      Vendor vendor = Vendor.GetVendorWithId(id);
+      vendor.DeleteVendor();
       return RedirectToAction("Index");
     }
     [HttpGet("/vendor/deleteAll")]

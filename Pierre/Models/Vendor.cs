@@ -8,7 +8,7 @@ namespace Pierre.Models
     public string Description { get; set; }
     public int Id { get; set; }
 
-    private List<Order> orders = new List<Order> { };
+    private List<Order> _orders = new List<Order> { };
 
     private static List<Vendor> _instances = new List<Vendor> { };
 
@@ -34,17 +34,17 @@ namespace Pierre.Models
     }
     public void AddOrder(Order order)
     {
-      orders.Add(order);
+      _orders.Add(order);
     }
     public List<Order> GetOrders()
     {
-      return orders;
+      return _orders;
     }
-    public int getOrderCount()
+    public int GetOrderCount()
     {
-      return orders.Count;
+      return _orders.Count;
     }
-    public static Vendor getVendorWithId(int id)
+    public static Vendor GetVendorWithId(int id)
     {
       foreach (Vendor vendor in _instances)
       {
@@ -55,22 +55,22 @@ namespace Pierre.Models
       }
       return null;
     }
-    public void deleteVendor()
+    public void DeleteVendor()
     {
       _instances.Remove(this);
     }
-    public void deleteOrder(int orderId)
+    public void DeleteOrder(int orderId)
     {
-      Order orderToBeDeleted = getOrderWithId(orderId);
-      orders.Remove(orderToBeDeleted);
+      Order orderToBeDeleted = GetOrderWithId(orderId);
+      _orders.Remove(orderToBeDeleted);
     }
-    public void deleteAllOrders()
+    public void DeleteAllOrders()
     {
-      orders.Clear();
+      _orders.Clear();
     }
-    public Order getOrderWithId(int id)
+    public Order GetOrderWithId(int id)
     {
-      foreach (Order item in orders)
+      foreach (Order item in _orders)
       {
         if (item.Id == id)
         {
