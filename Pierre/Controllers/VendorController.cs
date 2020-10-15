@@ -52,37 +52,7 @@ namespace Pierre.Controllers
       Order order = vendor.GetOrderWithId(oid);
       return View(order);
     }
-    // Did not add the Functionality to Delete the Order
-    //[HttpGet("/vendor/{id}/order/{oid}/delete")]
-    // public ActionResult DeleteOrder(int vendorId, int orderId)
-    // {
-    //   Vendor vendor = Vendor.GetVendorWithId(vendorId);
-    //   vendor.DeleteOrder(orderId);
-
-    //   return RedirectToAction("Details");
-    // }
-    // [HttpGet("/vendor/{id}/order/deleteAll")]
-    // public ActionResult DeleteAllOrders(int vendorId)
-    // {
-    //   Vendor vendor = Vendor.GetVendorWithId(vendorId);
-    //   vendor.DeleteAllOrders(); ;
-    //   return RedirectToAction("Details");
-    // }
-
-
-    // [HttpGet("/vendor/{id}/delete")]
-    // public ActionResult DeleteVendor(int id)
-    // {
-    //   Vendor vendor = Vendor.GetVendorWithId(id);
-    //   vendor.DeleteVendor();
-    //   return RedirectToAction("Index");
-    // }
-    // [HttpGet("/vendor/deleteAll")]
-    // public ActionResult DeleteAllVendors(int id)
-    // {
-    //   Vendor.ClearAll();
-    //   return RedirectToAction("Index");
-    // }
+   
 
     [HttpGet("/vendor/search")]
     public ActionResult Search()
@@ -94,7 +64,7 @@ namespace Pierre.Controllers
     public ActionResult SearchVendor(string vendor)
     {
       Vendor vendor1 = Vendor.SearchVendor(vendor);
-      //Console.WriteLine(a);
+      
       return View("Details", vendor1);
     }
 

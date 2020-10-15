@@ -55,20 +55,7 @@ namespace Pierre.Models
       }
       return null;
     }
-    // did not add the functionality to Delete vendor or orders
-    // public void DeleteVendor()
-    // {
-    //   _instances.Remove(this);
-    // }
-    // public void DeleteOrder(int orderId)
-    // {
-    //   Order orderToBeDeleted = GetOrderWithId(orderId);
-    //   _orders.Remove(orderToBeDeleted);
-    // }
-    // public void DeleteAllOrders()
-    // {
-    //   _orders.Clear();
-    // }
+   
     public Order GetOrderWithId(int id)
     {
       foreach (Order item in _orders)
@@ -82,7 +69,6 @@ namespace Pierre.Models
     }
     public static Vendor SearchVendor(string vendorSearch)
     {
-      //List<Record> result = new List<Record>{};
       foreach (Vendor vendor in _instances)
       {
         if (vendor.Name == vendorSearch)
