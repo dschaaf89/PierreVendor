@@ -18,7 +18,7 @@ namespace Pierre.Tests
       Order newOrder = new Order ("test","test",5,DateTime.Now,1,"bob",2);
       Assert.AreEqual (typeof (Order), newOrder.GetType ());
     }
-     [TestMethod]
+    [TestMethod]
     public void GetTitle_ReturnsTitle_String() 
     {
       //Arrange
@@ -78,7 +78,7 @@ namespace Pierre.Tests
     [TestMethod]
     public void GetId_OrdersInstantiateWithAnIdAndGetterReturns_Int () {
       //Arrange
-     string description = "sourdough bread and cookies.";
+    string description = "sourdough bread and cookies.";
     Order newOrder = new Order("bob",description,15,DateTime.Now,1,"bob",1);
 
       //Act

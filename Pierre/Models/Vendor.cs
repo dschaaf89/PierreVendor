@@ -30,7 +30,7 @@ namespace Pierre.Models
     }
     public static Vendor Find(int searchId)
     {
-      return _instances[searchId - 1];
+      return _instances[searchId-1];
     }
     public void AddOrder(Order order)
     {
@@ -55,19 +55,20 @@ namespace Pierre.Models
       }
       return null;
     }
-    public void DeleteVendor()
-    {
-      _instances.Remove(this);
-    }
-    public void DeleteOrder(int orderId)
-    {
-      Order orderToBeDeleted = GetOrderWithId(orderId);
-      _orders.Remove(orderToBeDeleted);
-    }
-    public void DeleteAllOrders()
-    {
-      _orders.Clear();
-    }
+    // did not add the functionality to Delete vendor or orders
+    // public void DeleteVendor()
+    // {
+    //   _instances.Remove(this);
+    // }
+    // public void DeleteOrder(int orderId)
+    // {
+    //   Order orderToBeDeleted = GetOrderWithId(orderId);
+    //   _orders.Remove(orderToBeDeleted);
+    // }
+    // public void DeleteAllOrders()
+    // {
+    //   _orders.Clear();
+    // }
     public Order GetOrderWithId(int id)
     {
       foreach (Order item in _orders)
